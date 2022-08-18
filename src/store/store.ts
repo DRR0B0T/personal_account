@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit'
+import {configureStore} from '@reduxjs/toolkit'
 import {auth} from './auth/slice'
 
 const store = configureStore({
@@ -8,3 +8,6 @@ const store = configureStore({
 })
 
 export default store
+
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch

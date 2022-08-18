@@ -1,11 +1,12 @@
-import {createSlice } from '@reduxjs/toolkit'
-interface IAuth {
+import {createSlice, PayloadAction } from '@reduxjs/toolkit'
+type IAuth =  {
     id: number;
     userId: number;
     token: string;
     isLoading: boolean;
 }
-const initialState: IAuth  = {
+
+const initialState: IAuth = {
         id: 0,
         userId: 0,
         token: '',
@@ -16,7 +17,7 @@ const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        login(state, action) {
+        login(state, action: PayloadAction<any>) {
             const {token, id} = action.payload
             state.token = token
             state.userId = id

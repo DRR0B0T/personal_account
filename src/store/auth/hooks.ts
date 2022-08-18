@@ -1,6 +1,7 @@
-import { useEffect } from "react"
-import {useSelector, useDispatch} from 'react-redux'
-import {startLoading, stopLoading, login, auth} from './slice'
+import {useEffect} from "react"
+import {useDispatch, useSelector} from 'react-redux'
+import {login, startLoading, stopLoading} from './slice'
+
 
 type User = {
     id?: number;
@@ -20,7 +21,9 @@ export const useAuth = () =>{
 
     useEffect(()=> {
         dispatch(startLoading())
-        const data = JSON.parse((localStorage.getItem('userData')) || '')
+
+        const data = JSON.parse((localStorage.getItem('userData')) || '{}')
+
         if(data){
             dispatch(login({token:  data.token, id: data.userId}))
         }
