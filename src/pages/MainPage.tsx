@@ -1,7 +1,7 @@
 import React from 'react';
 import './MainPage.scss'
 
-const MainPage = () => {
+const MainPage: React.FC = () => {
     return (
         <div>
             <h1>

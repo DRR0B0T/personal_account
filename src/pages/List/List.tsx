@@ -1,10 +1,11 @@
 import React from 'react';
 import './List.scss'
+import {Users} from "../../components/Users";
 
 const List:React.FC = () => {
     return (
         <div className='container'>
-            <h1 className='list'>This is list</h1>
+            <Users/>
         </div>
     );
 };

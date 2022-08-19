@@ -5,7 +5,7 @@ import {saveUserDataToLocalStore} from "../../store/auth/hooks";
 import {login} from "../../store/auth/slice";
 import {useDispatch, useSelector} from "react-redux";
 
-const Registration = () => {
+const Registration: React.FC = () => {
     const [form, setForm] = useState({
         email: '',
         password: ''

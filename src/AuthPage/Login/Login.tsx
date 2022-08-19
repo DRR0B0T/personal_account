@@ -2,12 +2,12 @@ import React, {useState} from 'react';
 import {Link, Navigate, useSearchParams} from "react-router-dom";
 import axios from "axios";
 import {useDispatch, useSelector} from 'react-redux'
-import {auth, login} from '../../store/auth/slice';
+import {login} from '../../store/auth/slice';
 import {saveUserDataToLocalStore} from '../../store/auth/hooks'
 
-const Login = () => {
+const Login: React.FC = () => {
     const dispatch = useDispatch()
-    const token = useSelector((state:{auth:{token:string}}) => state.auth.token)
+    const token = useSelector((state: { auth: { token: string } }) => state.auth.token)
     let [searchParams] = useSearchParams();
     const redirectTo = searchParams.get("redirectTo") || '/'
 
@@ -39,14 +39,13 @@ const Login = () => {
 
         } catch (e) {
             console.log(e)
-        }
-        finally {
+        } finally {
             setIsLoading(false)
         }
     }
 
     if (token) {
-        return <Navigate to={redirectTo} />
+        return <Navigate to={redirectTo}/>
     }
 
     return (
@@ -55,7 +54,7 @@ const Login = () => {
                 : <>
                     <h3>Авторизация</h3>
                     <form
-                        onSubmit={event=>event.preventDefault()}
+                        onSubmit={event => event.preventDefault()}
                         className='form form-login'>
                         <div className="row">
                             <div className="input-field col s12">
