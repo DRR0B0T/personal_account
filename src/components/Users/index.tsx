@@ -1,8 +1,13 @@
 import React from 'react';
 import { Skeleton } from './Sceleton';
 import { User } from './User';
+interface PropsType {
+    children: JSX.Element
+    name: string
+}
 
-export const Users = ({ items, isLoading }:{items: string, isLoading: boolean}) => {
+export const Users = ({ users, isLoading }:{users: [], isLoading: boolean}) => {
+
     return (
         <>
             <div className="search">
@@ -19,10 +24,11 @@ export const Users = ({ items, isLoading }:{items: string, isLoading: boolean}) 
                 </div>
             ) : (
                 <ul className="users-list">
-                    <User />
+                    {
+                        users.map((user)=><User  {...user}/>)
+                    }
                 </ul>
             )}
-            <button className="send-invite-btn">Отправить приглашение</button>
         </>
     );
 };
